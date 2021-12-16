@@ -1,0 +1,248 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "PlayfairDisplay-Italic-VariableFont_wght";
+  font-display: swap;
+  src: url("../fonts/PlayfairDisplay-Italic-VariableFont_wght.woff") format("woff"), url("../fonts/PlayfairDisplay-Italic-VariableFont_wght.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PlayfairDisplay-VariableFont_wght";
+  font-display: swap;
+  src: url("../fonts/PlayfairDisplay-VariableFont_wght.woff") format("woff"), url("../fonts/PlayfairDisplay-VariableFont_wght.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto-Black";
+  font-display: swap;
+  src: url("../fonts/Roboto-Black.woff") format("woff"), url("../fonts/Roboto-Black.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto-BlackItalic";
+  font-display: swap;
+  src: url("../fonts/Roboto-BlackItalic.woff") format("woff"), url("../fonts/Roboto-BlackItalic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* конвертируем чз сайт https://transfonter.org */
+
+/* ссылка на урок с 30й минуты подключение шрифта 
+https://www.youtube.com/watch?v=UwOLJy7Fh7M */
+
+/* Затем идут начертание — font-style и насыщенность — font-weight. Это обязательные свойства в определении шрифта.
+Наш шрифт не наклонный — normal, а насыщенность — 400. Но как мы это поняли?
+Чтобы определить настройки шрифта, есть два варианта: подключить шрифт к странице или узнать настройки в сервисе, 
+из которого был скачан шрифт. Мы скачали шрифт с Google Fonts и там же посмотрели все настройки.
+Укажем, как шрифт будет отображаться: пропишем значение swap, чтобы шрифт не блокировался и имел бесконечный 
+период подмены. Это самое частое значение для font-display, но это не значит, что другие плохие.
+Подробнее про то, как это работает, ищите в статье «Как подключить и оптимизировать нестандартные шрифты»*/
+
+/* глобальные стили 
+Обычно на <body> добавляют основные текстовые параметры проекта. Это нужно для того, чтобы любой добавленный 
+текст сразу отображался так, как задумывалось на макете. Чтобы понять, какой шрифт используется чаще всего, нужно 
+пойти в макет и буквально прокликать весь контент.
+В макете магазина Conquest чаще всего используется "Roboto" и реже "Playfair Display", поэтому подключим "Roboto".
+Так как "Roboto" имеет параметры шрифта: font-style: normal; и font-weight: 400;, то дополнительно указывать их на 
+не нужно. Эти параметры являются параметрами по умолчанию для большинства HTML-элементов.
+Очередной глобальный шаг — определить базовые размеры текста для всего проекта. Обычно для этого выбирают большие
+ куски текста на макете и смотрят, какой там указан размер и межстрочный интервал.
+*/
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  background-color: #fff;
+  color: #555248;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* максимальная ширина задается для того чтобы картинки не вываливались
+если будет вставлена огромная картинка 2000px в ширину
+не сломала верстку и не задала горизонтальный скролл
+высота авто не дает картинке потрять свои пропорции */
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+ul {
+  /* убирают булиты точки у списка  */
+  list-style: none;
+}
+
+/* далее обращаемся по классу. селектор по классу
+они имеют больший вес чем у селект по тегу */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.heading {
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 43px;
+  color: #1b1a17;
+}
+
+/* Укажем расстояние между буквами с помощью параметра letter-spacing.
+
+На всех кнопках используются прописные буквы, поэтому мы добавим свойство text-transform: uppercase;. */
+
+.button,
+.promo__link,
+.advantages__link {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 26px 38px;
+  background-color: #d4b098;
+}
+
+.button--dark,
+.promo__link {
+  background-color: #444240;
+}
+
+.main-nav__link,
+.user-nav__link {
+  font-size: 14px;
+  line-height: 16px;
+  color: #555248;
+}
+
+.promo {
+  font-family: "Playfair Display", serif;
+  color: #1b1a17;
+}
+
+.promo__title {
+  font-weight: 400;
+  font-size: 45px;
+  line-height: 60;
+}
+
+.promo__sub-title {
+  font-size: 30px;
+  line-height: 40px;
+}
+
+.promo__description {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 23px;
+  color: rgba(27, 26, 23, 0.82);
+}
+
+.promo__characteristics {
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.promo__price {
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.popular__show-more {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: #444240;
+  border-bottom: 1px solid #c4c0b6;
+}
+
+.promo__item {
+  border-color: #fdfdfd;
+}
+
+.card {
+  font-family: "Playfair Display", serif;
+}
+
+.card__title {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.03em;
+  color: rgba(27, 26, 23, 0.82);
+}
+
+.card__price {
+  font-size: 12px;
+  line-height: 16px;
+  color: rgba(27, 26, 23, 0.82);
+}
+
+.card__link {
+  font-size: 16px;
+  line-height: 23px;
+  color: #1b1a17;
+}
+
+.card__img {
+  -webkit-filter: drop-shadow(2px 2px 10px rgba(85, 82, 72, 0.23));
+          filter: drop-shadow(2px 2px 10px rgba(85, 82, 72, 0.23));
+}
+
+.advantages {
+  background-color: #fdfdfb;
+}
+
+.advantages__description {
+  font-size: 16px;
+  line-height: 24px;
+  color: #444240;
+}
+
+.news-company__description {
+  font-size: 16px;
+  line-height: 27px;
+  color: #444240;
+}
+
+.page-footer {
+  background-color: #444240;
+}
+
+.page-footer__link {
+  font-size: 12px;
+  line-height: 14px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.page-footer__title {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
